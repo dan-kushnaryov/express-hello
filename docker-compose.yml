@@ -1,0 +1,12 @@
+version: '3.5'
+services: 
+  api:
+    build: .
+    command: /usr/src/app/entrypoint.sh
+    volumes:
+      # map local to remote folder, exclude node_modules
+      - ./:/usr/src/app
+      - ./entrypoint.sh:/usr/src/app/entrypoint.sh
+      # - /usr/src/app/node_modules
+    ports:
+      - 3000:3000
